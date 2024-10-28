@@ -10,7 +10,65 @@
     font-family: Arial, sans-serif;
     background-color: #000;
     color: #fff;
+    overflow: hidden;
   }
+
+  /* Loading Screen */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 100;
+}
+
+.loading-text {
+  display: flex;
+  font-size: 6rem;
+  font-weight: 900;
+  color: transparent;
+  font-family:Archivo;
+}
+
+.loading-text span {
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 2px white; 
+  animation: draw 2s ease forwards;
+  animation-delay: calc(1.9s * var(--i));
+  opacity: 0;
+}
+
+.loading-subtext {
+  margin-top: 10px;
+  color: #888;
+  font-size: 1rem;
+  animation: fadeIn 1s ease 2s forwards;
+}
+
+/* Keyframes for Drawing Effect */
+@keyframes draw {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  50% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  100% {
+      opacity: 1;
+      -webkit-text-stroke: 3px; 
+      color: white;
+  }
+}
+
   
   /* Navbar */
   .navbar {
@@ -76,14 +134,16 @@
     position: absolute;
     top: 50px;
     text-align: center;
-    font-size: 4.2rem;
-    font-weight:900;
     z-index: 3; 
   }
 
   .hero-content h1{
     line-height: 1;
     font-family: Archivo;
+    letter-spacing: 15px;
+    font-size: 6rem;
+    font-weight:bold;
+
   }
   
   /* Image Grid */
@@ -148,7 +208,7 @@
   .img-container:hover .hover-image {
     transform: scale(1.1);
     z-index: 20;
-  }
+}
   
   .img-container:hover .img-overlay {
     opacity: 0;
@@ -158,13 +218,13 @@
     opacity: 1; 
 }
 
-  .img1 { top: 40px; left: 30%; }
-  .img2 { top: 20px; right: 10%; }
-  .img3 { bottom: -20px; left: 40%; }
+  .img1 { top: 50px; left: 40%; }
+  .img2 { top: 30px; right: 0%; }
+  .img3 { bottom: -10px; left: 25%; }
   .img4 { bottom: 40px; left: 10%; }
   
   .img-container img {
-    transition: transform 0.6s ease;  /* Smooth transition on hover out */
+    transition: transform 0.6s ease; 
   }
   
   .img-container:hover img {
@@ -175,16 +235,16 @@
         transform: translate(10px, 0px);
     }
     25% {
-        transform: translate(80px, 50px); /* Move more outside the container */
+        transform: translate(80px, 50px); 
     }
     50% {
-        transform: translate(-80px, 50px); /* Move more outside the container */
+        transform: translate(-80px, 50px);
     }
     75% {
-        transform: translate(80px, -50px); /* Move more outside the container */
+        transform: translate(80px, -50px); 
     }
     100% {
-        transform: translate(-80px, -50px); /* Move more outside the container */
+        transform: translate(-80px, -50px); 
     }
 }
 
